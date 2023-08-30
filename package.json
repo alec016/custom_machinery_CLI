@@ -1,0 +1,27 @@
+{
+  "name": "@alec_016/custom_machinery_cli",
+  "bin": {
+    "cm": "./dist/binm.js"
+  },
+  "version": "0.0.1",
+  "description": "Custom Machinery CLI for generating recipes, machines and upgrades for CT, KubeJS and JSON formats",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "esbuild --bundle ./src/index.ts --platform=node --outfile=dist/bin.js --packages=external --watch",
+    "link-cli": "(pnpm unlink cm || true) && (chmod +x ./dist/bin.js || icacls ./dist/bin.js /grant *S-1-1-0:F) && pnpm link --global",
+    "release": "pnpm build && npm publish"
+  },
+  "keywords": [],
+  "author": "alec_016",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/figlet": "1.5.6",
+    "@types/node": "20.5.7",
+    "esbuild": "0.19.2",
+    "typescript": "5.2.2"
+  },
+  "dependencies": {
+    "commander": "11.0.0",
+    "figlet": "1.6.0"
+  }
+}
