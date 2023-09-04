@@ -1,5 +1,4 @@
 import { Command } from 'commander'
-import { Machine } from 'types'
 import { createFile } from '../file'
 
 export const mKubeJS = new Command('kubejs')
@@ -59,7 +58,7 @@ ${
   success = await createFile({
     file,
     path,
-    content: JSON.stringify(JSON.parse(json) as Machine, null, 2),
+    content: JSON.stringify(JSON.parse(json), null, 2),
     force: opts.force ?? false
   })
   console.log(

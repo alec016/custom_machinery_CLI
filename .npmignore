@@ -1,5 +1,7 @@
 src
+types
 tests
 pnpm-lock.yaml
 tsconfig.json
 .changeset
+.gitignore

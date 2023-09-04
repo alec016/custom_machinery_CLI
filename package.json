@@ -1,15 +1,18 @@
 {
   "name": "@alec_016/custom_machinery_cli",
   "bin": {
-    "cm": "./dist/binm.js"
+    "cm": "./dist/bin.js"
   },
-  "version": "0.0.1",
+  "repository": "https://github.com/alec016/custom_machinery_CLI",
+  "version": "0.0.2",
   "description": "Custom Machinery CLI for generating recipes, machines and upgrades for CT, KubeJS and JSON formats",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "esbuild --bundle ./src/index.ts --platform=node --outfile=dist/bin.js --packages=external --watch",
+    "dev": "esbuild --bundle ./src/index.ts --platform=node --outfile=dist/bin.js --packages=external --watch",
+    "build": "esbuild --bundle ./src/index.ts --platform=node --outfile=dist/bin.js --packages=external",
     "link-cli": "(pnpm unlink cm || true) && (chmod +x ./dist/bin.js || icacls ./dist/bin.js /grant *S-1-1-0:F) && pnpm link --global",
-    "release": "pnpm build && npm publish"
+    "release": "pnpm build && npm publish --access public",
+    "postinstall": "pnpm link-cli"
   },
   "keywords": [],
   "author": "alec_016",
